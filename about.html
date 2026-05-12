@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Her 💖</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffd6e7, #dbe8ff);
+        }
+
+        /* ================= MAIN SECTION ================= */
+
+        .about {
+            min-height: 100vh;
+            width: 100%;
+            padding: 80px 8%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Floating Blur Circles */
+
+        .circle1,
+        .circle2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .circle1 {
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 77, 166, 0.35);
+            top: 10%;
+            left: 5%;
+        }
+
+        .circle2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 102, 255, 0.25);
+            bottom: 10%;
+            right: 5%;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .about-container {
+            width: 100%;
+            max-width: 1200px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            flex-wrap: wrap;
+
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(14px);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            border-radius: 30px;
+
+            padding: 50px;
+
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ================= IMAGE ================= */
+
+        .about-image {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 30px;
+
+            object-fit: cover;
+
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+            transition: 0.5s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.04) rotate(1deg);
+        }
+
+        /* ================= TEXT ================= */
+
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            background: #ff4da6;
+            color: white;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .about-text h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            color: #222;
+            margin-bottom: 25px;
+        }
+
+        .about-text h1 span {
+            color: #ff2d8d;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 32px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.4s ease;
+        }
+
+        .primary-btn {
+            background: #ff2d8d;
+            color: white;
+            box-shadow: 0 10px 20px rgba(255, 45, 141, 0.35);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-4px);
+            background: #ff0077;
+        }
+
+        .secondary-btn {
+            border: 2px solid #ff2d8d;
+            color: #ff2d8d;
+            background: transparent;
+        }
+
+        .secondary-btn:hover {
+            background: #ff2d8d;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* ================= HOME BUTTON ================= */
+
+        .home-btn {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+
+            text-decoration: none;
+
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+
+            padding: 12px 22px;
+
+            border-radius: 50px;
+
+            color: #111;
+            font-weight: 600;
+
+            transition: 0.4s ease;
+
+            z-index: 999;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .home-btn:hover {
+            background: #ff2d8d;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 45, 141, 0.35);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 992px) {
+
+            .about-container {
+                gap: 40px;
+                padding: 40px;
+            }
+
+            .about-text h1 {
+                font-size: 42px;
+            }
+
+            .about-text p {
+                font-size: 17px;
+                line-height: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .about {
+                padding: 100px 20px 40px;
+            }
+
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                border-radius: 25px;
+            }
+
+            .about-image img {
+                max-width: 320px;
+            }
+
+            .about-text h1 {
+                font-size: 34px;
+            }
+
+            .about-text p {
+                font-size: 16px;
+                line-height: 28px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .home-btn {
+                top: 15px;
+                left: 15px;
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .about-text h1 {
+                font-size: 28px;
+            }
+
+            .about-text p {
+                font-size: 15px;
+                line-height: 26px;
+            }
+
+            .about-image img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HOME BUTTON -->
+
+    <a href="index.html" class="home-btn">⬅ Home</a>
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about">
+
+        <!-- BACKGROUND BLUR EFFECT -->
+
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+
+        <div class="about-container">
+
+            <!-- IMAGE -->
+
+            <div class="about-image">
+                <img src="about.png" alt="Her Image">
+            </div>
+
+            <!-- TEXT -->
+
+            <div class="about-text">
+
+                <span class="tag">MY LOVE ❤️</span>
+
+                <h1>
+                    About My <span>Beautiful Girl</span> 💖
+                </h1>
+
+                <p>
+                    You are the most special person in my life.
+                    Your smile brightens my darkest days,
+                    and your presence fills my world with happiness.
+                    Every moment with you feels magical and unforgettable.
+                </p>
+
+                <p>
+                    You are not just my girlfriend —
+                    you are my best friend, my peace, my strength,
+                    and the reason behind my smile every single day.
+                </p>
+
+                <p>
+                    On your birthday, I just want to say:
+                    Thank you for loving me,
+                    supporting me,
+                    and making my life so beautiful ❤️
+                </p>
+
+                <!-- BUTTONS -->
+
+                <div class="buttons">
+
+                    <a href="#" class="btn primary-btn">
+                        I Love You 💕
+                    </a>
+
+                    <a href="#" class="btn secondary-btn">
+                        Forever Together ✨
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

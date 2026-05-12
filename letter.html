@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Love Letter 💌</title>
+
+    <!-- GOOGLE FONTS -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 40px 20px;
+
+            overflow-x: hidden;
+
+            background: linear-gradient(135deg, #ffe0ef, #dfe8ff);
+
+            position: relative;
+        }
+
+        /* ================= BACKGROUND BLUR EFFECT ================= */
+
+        body::before,
+        body::after {
+
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(90px);
+
+            z-index: 0;
+        }
+
+        body::before {
+
+            width: 280px;
+            height: 280px;
+
+            background: rgba(255, 105, 180, 0.3);
+
+            top: -80px;
+            left: -60px;
+        }
+
+        body::after {
+
+            width: 320px;
+            height: 320px;
+
+            background: rgba(113, 145, 255, 0.3);
+
+            bottom: -100px;
+            right: -80px;
+        }
+
+        /* ================= HOME BUTTON ================= */
+
+        .home-btn {
+
+            position: fixed;
+
+            top: 25px;
+            left: 25px;
+
+            text-decoration: none;
+
+            padding: 12px 22px;
+
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.4);
+
+            color: #111;
+
+            font-weight: 600;
+
+            transition: 0.4s ease;
+
+            z-index: 999;
+        }
+
+        .home-btn:hover {
+
+            background: #ff2e93;
+
+            color: white;
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 10px 25px rgba(255, 46, 147, 0.35);
+        }
+
+        /* ================= LETTER SECTION ================= */
+
+        .letter-section {
+
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        /* ================= CARD ================= */
+
+        .card {
+
+            width: 100%;
+            max-width: 850px;
+
+            background: rgba(255, 255, 255, 0.18);
+
+            backdrop-filter: blur(14px);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            border-radius: 40px;
+
+            padding: 90px 70px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+
+            animation: fadeIn 1s ease;
+        }
+
+        /* ================= CARD DECORATION ================= */
+
+        .card::before,
+        .card::after {
+
+            position: absolute;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 180px;
+            height: 130px;
+
+            border-radius: 25px;
+
+            font-size: 80px;
+
+            background: linear-gradient(135deg, #ff4da6, #ff0077);
+
+            box-shadow: 0 15px 30px rgba(255, 0, 119, 0.25);
+        }
+
+        .card::before {
+
+            content: "💌";
+
+            top: -35px;
+            left: -35px;
+
+            transform: rotate(-12deg);
+        }
+
+        .card::after {
+
+            content: "❤️";
+
+            bottom: -35px;
+            right: -35px;
+
+            transform: rotate(12deg);
+        }
+
+        /* ================= FLOATING HEARTS ================= */
+
+        .heart {
+
+            position: absolute;
+
+            font-size: 40px;
+
+            animation: float 4s ease-in-out infinite;
+
+            opacity: 0.8;
+        }
+
+        .heart1 {
+
+            top: 40px;
+            right: 90px;
+        }
+
+        .heart2 {
+
+            bottom: 50px;
+            left: 90px;
+
+            animation-delay: 1s;
+        }
+
+        /* ================= HEADING ================= */
+
+        .card h1 {
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 82px;
+
+            color: #ff2e93;
+
+            margin-bottom: 35px;
+        }
+
+        /* ================= TEXT ================= */
+
+        .card p {
+
+            font-size: 18px;
+
+            color: #555;
+
+            line-height: 36px;
+
+            margin-bottom: 30px;
+        }
+
+        /* ================= SIGNATURE ================= */
+
+        .signature {
+
+            margin-top: 35px;
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 50px;
+
+            color: #ff2e93;
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(40px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 768px) {
+
+            body {
+
+                padding: 90px 15px 30px;
+            }
+
+            .card {
+
+                padding: 55px 25px;
+
+                border-radius: 28px;
+            }
+
+            .card h1 {
+
+                font-size: 52px;
+
+                margin-bottom: 25px;
+            }
+
+            .card p {
+
+                font-size: 15px;
+
+                line-height: 28px;
+            }
+
+            .signature {
+
+                font-size: 38px;
+            }
+
+            /* Decorations */
+
+            .card::before,
+            .card::after {
+
+                width: 110px;
+                height: 85px;
+
+                font-size: 45px;
+            }
+
+            .card::before {
+
+                top: -20px;
+                left: -20px;
+            }
+
+            .card::after {
+
+                bottom: -20px;
+                right: -20px;
+            }
+
+            /* Floating Hearts */
+
+            .heart {
+
+                font-size: 26px;
+            }
+
+            .heart1 {
+
+                top: 20px;
+                right: 20px;
+            }
+
+            .heart2 {
+
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .home-btn {
+
+                top: 15px;
+                left: 15px;
+
+                font-size: 14px;
+
+                padding: 10px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .card h1 {
+
+                font-size: 42px;
+            }
+
+            .card p {
+
+                font-size: 14px;
+
+                line-height: 26px;
+            }
+
+            .signature {
+
+                font-size: 34px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HOME BUTTON -->
+
+    <a href="index.html" class="home-btn">⬅ Home</a>
+
+    <!-- LETTER SECTION -->
+
+    <section class="letter-section">
+
+        <!-- FLOATING HEARTS -->
+
+        <div class="heart heart1">💖</div>
+
+        <div class="heart heart2">✨</div>
+
+        <!-- CARD -->
+
+        <div class="card">
+
+            <h1>My Love Letter 💌</h1>
+
+            <p>
+                You are the most beautiful chapter of my life.
+                Every smile of yours lights up my world
+                and fills my heart with happiness.
+                I truly feel lucky every single day
+                because you are part of my journey.
+            </p>
+
+            <p>
+                On your special day,
+                I just want to promise that
+                I will always stand beside you,
+                support you,
+                protect your smile,
+                and love you endlessly no matter what.
+            </p>
+
+            <p>
+                Thank you for being my peace,
+                my happiness,
+                and the reason behind so many beautiful memories.
+                Happy Birthday, my love ❤️
+            </p>
+
+            <!-- SIGNATURE -->
+
+            <div class="signature">
+                Forever Yours 💕
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Our Memories 💖</title>
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+
+            background: linear-gradient(135deg, #ffe0ef, #dfe8ff);
+
+            position: relative;
+        }
+
+        /* ================= BACKGROUND GLOW ================= */
+
+        body::before,
+        body::after {
+
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(90px);
+
+            z-index: 0;
+        }
+
+        body::before {
+
+            width: 300px;
+            height: 300px;
+
+            background: rgba(255, 105, 180, 0.25);
+
+            top: -100px;
+            left: -80px;
+        }
+
+        body::after {
+
+            width: 350px;
+            height: 350px;
+
+            background: rgba(114, 147, 255, 0.25);
+
+            bottom: -120px;
+            right: -100px;
+        }
+
+        /* ================= HOME BUTTON ================= */
+
+        .home-btn {
+
+            position: fixed;
+
+            top: 25px;
+            left: 25px;
+
+            text-decoration: none;
+
+            padding: 12px 22px;
+
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.4);
+
+            color: #111;
+
+            font-weight: 600;
+
+            transition: 0.4s ease;
+
+            z-index: 999;
+        }
+
+        .home-btn:hover {
+
+            background: #ff2e93;
+
+            color: white;
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 10px 25px rgba(255, 46, 147, 0.35);
+        }
+
+        /* ================= MAIN SECTION ================= */
+
+        .memory-section {
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding: 120px 8% 60px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        /* ================= TITLE ================= */
+
+        .title {
+
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .title h1 {
+
+            font-size: 60px;
+
+            color: #ff2e93;
+
+            margin-bottom: 10px;
+        }
+
+        .title p {
+
+            color: #555;
+
+            font-size: 18px;
+        }
+
+        /* ================= GALLERY ================= */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 35px;
+        }
+
+        /* ================= CARD ================= */
+
+        .frame {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.18);
+
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            padding: 14px;
+
+            transition: 0.5s ease;
+
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+            cursor: pointer;
+        }
+
+        .frame:hover {
+
+            transform: translateY(-10px) scale(1.03);
+
+            box-shadow: 0 25px 50px rgba(255, 46, 147, 0.25);
+        }
+
+        /* IMAGE */
+
+        .frame img {
+
+            width: 100%;
+
+            height: 320px;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+
+            transition: 0.5s ease;
+        }
+
+        .frame:hover img {
+
+            transform: scale(1.05);
+        }
+
+        /* OVERLAY */
+
+        .overlay {
+
+            position: absolute;
+
+            inset: 14px;
+
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.7),
+                    transparent);
+
+            border-radius: 22px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 20px;
+
+            opacity: 0;
+
+            transition: 0.4s ease;
+        }
+
+        .frame:hover .overlay {
+
+            opacity: 1;
+        }
+
+        .overlay h3 {
+
+            color: white;
+
+            font-size: 22px;
+
+            font-weight: 600;
+        }
+
+        /* ================= FLOATING HEARTS ================= */
+
+        .floating-heart {
+
+            position: absolute;
+
+            font-size: 28px;
+
+            animation: float 4s ease-in-out infinite;
+
+            opacity: 0.7;
+
+            z-index: 1;
+        }
+
+        .heart1 {
+
+            top: 15%;
+            left: 8%;
+        }
+
+        .heart2 {
+
+            top: 30%;
+            right: 10%;
+
+            animation-delay: 1s;
+        }
+
+        .heart3 {
+
+            bottom: 10%;
+            left: 12%;
+
+            animation-delay: 2s;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 768px) {
+
+            .memory-section {
+
+                padding: 100px 20px 40px;
+            }
+
+            .title h1 {
+
+                font-size: 40px;
+            }
+
+            .title p {
+
+                font-size: 15px;
+            }
+
+            .gallery {
+
+                gap: 20px;
+            }
+
+            .frame img {
+
+                height: 260px;
+            }
+
+            .overlay h3 {
+
+                font-size: 18px;
+            }
+
+            .home-btn {
+
+                top: 15px;
+                left: 15px;
+
+                font-size: 14px;
+
+                padding: 10px 18px;
+            }
+
+            .floating-heart {
+
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .title h1 {
+
+                font-size: 32px;
+            }
+
+            .frame img {
+
+                height: 220px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HOME BUTTON -->
+
+    <a href="index.html" class="home-btn">⬅ Home</a>
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="floating-heart heart1">💖</div>
+
+    <div class="floating-heart heart2">✨</div>
+
+    <div class="floating-heart heart3">❤️</div>
+
+    <!-- MEMORY SECTION -->
+
+    <section class="memory-section">
+
+        <!-- TITLE -->
+
+        <div class="title">
+
+            <h1>Our Beautiful Memories 💕</h1>
+
+            <p>
+                Every picture tells a story filled with love,
+                happiness, and unforgettable moments ❤️
+            </p>
+
+        </div>
+
+        <!-- GALLERY -->
+
+        <div class="gallery">
+
+            <!-- IMAGE 1 -->
+
+            <div class="frame">
+
+                <img src="1 (1).jpg" alt="Memory 1">
+
+                <div class="overlay">
+
+                    <h3>Beautiful Moment 💖</h3>
+
+                </div>
+
+            </div>
+
+            <!-- IMAGE 2 -->
+
+            <div class="frame">
+
+                <img src="1 (2).jpg" alt="Memory 2">
+
+                <div class="overlay">
+
+                    <h3>Forever Together ✨</h3>
+
+                </div>
+
+            </div>
+
+            <!-- IMAGE 3 -->
+
+            <div class="frame">
+
+                <img src="1 (3).jpg" alt="Memory 3">
+
+                <div class="overlay">
+
+                    <h3>My Favorite Smile ❤️</h3>
+
+                </div>
+
+            </div>
+
+            <!-- IMAGE 4 -->
+
+            <div class="frame">
+
+                <img src="1 (4).jpg" alt="Memory 4">
+
+                <div class="overlay">
+
+                    <h3>Endless Love 💌</h3>
+
+                </div>
+
+            </div>
+
+            <!-- IMAGE 5 -->
+
+            <div class="frame">
+
+                <img src="2.jpg" alt="Memory 5">
+
+                <div class="overlay">
+
+                    <h3>Special Memories 🌸</h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

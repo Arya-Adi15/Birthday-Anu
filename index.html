@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday My Love ❤️</title>
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            background: linear-gradient(135deg, #fce3ff, #dfe9ff);
+
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ================= BACKGROUND GLOW ================= */
+
+        body::before,
+        body::after {
+
+            content: "";
+
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+
+        }
+
+        body::before {
+
+            width: 260px;
+            height: 260px;
+
+            background: rgba(255, 105, 180, 0.35);
+
+            top: 5%;
+            left: -60px;
+
+        }
+
+        body::after {
+
+            width: 300px;
+            height: 300px;
+
+            background: rgba(116, 155, 255, 0.35);
+
+            bottom: 0;
+            right: -80px;
+
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+        }
+
+        /* LOGO */
+
+        .logo {
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 42px;
+
+            color: #ff2e93;
+
+            letter-spacing: 1px;
+        }
+
+        /* NAV LINKS */
+
+        nav ul {
+
+            display: flex;
+            align-items: center;
+            gap: 35px;
+
+            list-style: none;
+
+        }
+
+        nav ul li a {
+
+            text-decoration: none;
+
+            color: #2450d3;
+
+            font-size: 17px;
+            font-weight: 600;
+
+            position: relative;
+
+            transition: 0.4s ease;
+
+        }
+
+        nav ul li a::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 0%;
+            height: 2px;
+
+            left: 0;
+            bottom: -6px;
+
+            background: #ff2e93;
+
+            transition: 0.4s ease;
+
+        }
+
+        nav ul li a:hover::after {
+
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+
+            color: #ff2e93;
+        }
+
+        /* ================= HERO SECTION ================= */
+
+        .hero {
+
+            width: 100%;
+            min-height: calc(100vh - 90px);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 80px;
+
+            padding: 50px 8%;
+
+            flex-wrap: wrap;
+
+        }
+
+        /* ================= LEFT SIDE ================= */
+
+        .left {
+
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .left h1 {
+
+            font-size: 80px;
+
+            line-height: 88px;
+
+            color: #4e6fd8;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+        .left h2 {
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 90px;
+
+            color: #ff72b7;
+
+            margin-bottom: 15px;
+        }
+
+        .left h3 {
+
+            color: #5f6f9d;
+
+            font-size: 18px;
+
+            margin-bottom: 25px;
+        }
+
+        .left p {
+
+            max-width: 560px;
+
+            color: #555;
+
+            font-size: 17px;
+
+            line-height: 32px;
+
+            margin-bottom: 35px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+
+            text-decoration: none;
+
+            padding: 14px 28px;
+
+            border-radius: 50px;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            transition: 0.4s ease;
+
+        }
+
+        .primary-btn {
+
+            background: linear-gradient(135deg, #ff4da6, #ff0077);
+
+            color: white;
+
+            box-shadow: 0 10px 25px rgba(255, 0, 119, 0.3);
+        }
+
+        .primary-btn:hover {
+
+            transform: translateY(-5px) scale(1.02);
+
+            box-shadow: 0 15px 35px rgba(255, 0, 119, 0.45);
+        }
+
+        .secondary-btn {
+
+            border: 2px solid #ff2e93;
+
+            color: #ff2e93;
+
+            background: transparent;
+        }
+
+        .secondary-btn:hover {
+
+            background: #ff2e93;
+
+            color: white;
+
+            transform: translateY(-5px);
+        }
+
+        /* ================= RIGHT IMAGE ================= */
+
+        .right {
+
+            flex: 1;
+            min-width: 280px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right img {
+
+            width: 100%;
+            max-width: 420px;
+
+            border-radius: 35px;
+
+            object-fit: cover;
+
+            border: 4px solid rgba(255, 255, 255, 0.5);
+
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+
+            transition: 0.5s ease;
+        }
+
+        .right img:hover {
+
+            transform: scale(1.04) rotate(1deg);
+
+            box-shadow: 0 25px 50px rgba(255, 0, 119, 0.3);
+        }
+
+        /* ================= FLOATING HEART ================= */
+
+        .floating-heart {
+
+            position: absolute;
+
+            font-size: 28px;
+
+            animation: float 4s ease-in-out infinite;
+
+            opacity: 0.8;
+        }
+
+        .heart1 {
+            top: 18%;
+            right: 15%;
+        }
+
+        .heart2 {
+            bottom: 18%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 992px) {
+
+            .hero {
+                gap: 50px;
+            }
+
+            .left h1 {
+
+                font-size: 60px;
+                line-height: 70px;
+            }
+
+            .left h2 {
+
+                font-size: 70px;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 15px 20px;
+            }
+
+            .logo {
+
+                font-size: 34px;
+            }
+
+            nav ul {
+
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav ul li a {
+
+                font-size: 14px;
+            }
+
+            .hero {
+
+                flex-direction: column-reverse;
+
+                text-align: center;
+
+                padding: 40px 20px;
+
+                min-height: auto;
+            }
+
+            .left h1 {
+
+                font-size: 48px;
+
+                line-height: 55px;
+            }
+
+            .left h2 {
+
+                font-size: 58px;
+            }
+
+            .left h3 {
+
+                font-size: 15px;
+            }
+
+            .left p {
+
+                font-size: 15px;
+
+                line-height: 28px;
+
+                max-width: 100%;
+            }
+
+            .buttons {
+
+                justify-content: center;
+            }
+
+            .btn {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .right img {
+
+                max-width: 320px;
+            }
+
+            .floating-heart {
+
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .left h1 {
+
+                font-size: 38px;
+
+                line-height: 45px;
+            }
+
+            .left h2 {
+
+                font-size: 46px;
+            }
+
+            .left p {
+
+                font-size: 14px;
+
+                line-height: 25px;
+            }
+
+            .right img {
+
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="floating-heart heart1">💖</div>
+    <div class="floating-heart heart2">✨</div>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <h1 class="logo">Happy Birthday ❤️</h1>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="letter.html">Letter</a></li>
+
+                <li><a href="gifts.html">Gift</a></li>
+
+                <li><a href="memories.html">Memories</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <!-- LEFT -->
+
+        <div class="left">
+
+            <h1>
+                HAPPY <br>
+                BIRTHDAY
+            </h1>
+
+            <h2>Anu 💕</h2>
+
+            <h3>Monday • 04 May • 00:01</h3>
+
+            <p>
+                Today is not just your birthday —
+                it’s the day the most beautiful soul entered my life.
+                Your smile makes my world brighter,
+                your love gives me strength,
+                and every moment with you feels magical.
+                Thank you for being my happiness,
+                my peace,
+                and my forever favorite person ❤️
+            </p>
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a href="about.html" class="btn primary-btn">
+                    Let's Celebrate 🎉
+                </a>
+
+                <a href="letter.html" class="btn secondary-btn">
+                    Read My Letter 💌
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="right">
+
+            <img src="anu.png" alt="Birthday Girl">
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
